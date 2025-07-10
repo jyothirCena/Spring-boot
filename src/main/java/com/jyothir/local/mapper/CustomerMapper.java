@@ -12,16 +12,17 @@ public class CustomerMapper {
 
         // Adding services to the customer -> services list
 
-//        List<ServiceResponseDto> serviceResponseDtos = customer
-//                .getServices()
-//                .stream()
-//                .map(ServiceMapper::mapToServiceResponseDto)
-//                .toList();
+        List<ServiceResponseDto> serviceResponseDtos = customer
+                .getServices()
+                .stream()
+                .map(ServiceMapper::mapToServiceResponseDto)
+                .toList();
 
         return new CustomerResponseDto(
                 customer.getCustomerId(),
                 customer.getCustomerName(),
-                customer.getEmail()
+                customer.getEmail(),
+                serviceResponseDtos
         );
     }
 }

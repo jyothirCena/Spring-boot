@@ -1,10 +1,7 @@
 package com.jyothir.local.controller;
 
-import java.util.List;
-
 import com.jyothir.local.dto.CustomerRequestDto;
 import com.jyothir.local.dto.CustomerResponseDto;
-import com.jyothir.local.dto.ServiceResponseDto;
 import com.jyothir.local.mapper.CustomerMapper;
 import com.jyothir.local.model.Customer;
 import com.jyothir.local.service.CustomerService;
@@ -13,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/customer")
@@ -33,7 +32,7 @@ public class CustomerController {
     }
 
     @GetMapping("{id}")
-    public CustomerResponseDto getEmployeeById(@PathVariable("id") int customerId){
+    public Customer getEmployeeById(@PathVariable("id") int customerId){
         return customerService.getCustomerById(customerId);
     }
 
@@ -50,11 +49,5 @@ public class CustomerController {
     @PutMapping("{id}")
     public Customer updateCustomer(@PathVariable("id") int customerId, @RequestBody Customer updateCustomer){
         return customerService.updateCustomer(customerId, updateCustomer);
-    }
-
-    @GetMapping("{id}/services")
-    public ResponseEntity<List<ServiceResponseDto>> getAllServicesByCustomer(@PathVariable("id") int customerId){
-        List<ServiceResponseDto> services = serviceListService.getServicesByCustomerId(customerId);
-        return ResponseEntity.ok(services);
     }
 }

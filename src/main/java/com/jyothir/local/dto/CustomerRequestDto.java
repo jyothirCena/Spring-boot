@@ -4,6 +4,8 @@ public class CustomerRequestDto {
     private String customerName;
     private String email;
     private String password;
+    private String address;
+    private String number;
 
     public String getCustomerName() {
         return customerName;
@@ -29,10 +31,28 @@ public class CustomerRequestDto {
         this.password = password;
     }
 
-    public CustomerRequestDto(String customerName, String email, String password) {
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    public CustomerRequestDto(String customerName, String email, String password, String address, String number) {
         this.customerName = customerName;
         this.email = email;
         this.password = password;
+        this.address = address;
+        this.number = number;
     }
 
     public CustomerRequestDto(){
@@ -45,6 +65,8 @@ public class CustomerRequestDto {
                 "customerName='" + customerName + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
+                ", address='" + address + '\'' +
+                ", number='" + number + '\'' +
                 '}';
     }
 }

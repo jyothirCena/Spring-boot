@@ -18,6 +18,6 @@ public interface ServiceListService {
 
     void deletedServiceById(int serviceId);
 
-    List<ServiceResponseDto> getServicesByCustomerId(int customerId);
+    List<ServiceList> getServicesByCustomerId(int customerId);
 
 }

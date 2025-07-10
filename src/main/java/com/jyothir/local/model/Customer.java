@@ -11,11 +11,28 @@ import java.util.List;
 public class Customer {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int customerId;
     private String customerName;
     private String email;
     private String password;
+    private String address;
+    private String number;
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
 
     @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
@@ -53,11 +70,13 @@ public class Customer {
         this.password = password;
     }
 
-    public Customer(int customerId, String customerName, String email, String password) {
+    public Customer(int customerId, String customerName, String email, String password, String address, String number) {
         this.customerId = customerId;
         this.customerName = customerName;
         this.email = email;
         this.password = password;
+        this.address = address;
+        this.number = number;
     }
 
     public Customer(){}
@@ -69,6 +88,8 @@ public class Customer {
                 ", customerName='" + customerName + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password +
+                ", address='" + address +
+                ", number='" + number +
                 '}';
     }
 

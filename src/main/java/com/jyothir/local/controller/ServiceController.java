@@ -14,6 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/service")
+@CrossOrigin("*")
 public class ServiceController {
 
     @Autowired
@@ -34,5 +35,11 @@ public class ServiceController {
     @GetMapping("/all")
     public ResponseEntity<List<ServiceList>> getAllServices(){
         return ResponseEntity.ok(serviceListService.getAllServices());
+    }
+
+    @GetMapping("{id}/services")
+    public ResponseEntity<List<ServiceList>> getAllServicesByCustomer(@PathVariable("id") int customerId){
+        List<ServiceList> services = serviceListService.getServicesByCustomerId(customerId);
+        return ResponseEntity.ok(services);
     }
 }

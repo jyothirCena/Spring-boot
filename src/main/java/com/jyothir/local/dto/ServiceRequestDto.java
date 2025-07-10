@@ -1,8 +1,6 @@
 package com.jyothir.local.dto;
 
 public class ServiceRequestDto {
-
-    private int id;
     private String serviceName;
     private String date;
     private String slot;
@@ -10,14 +8,6 @@ public class ServiceRequestDto {
     private String vendorName;
     private double amount;
     private int customerId;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getServiceName() {
         return serviceName;
@@ -75,8 +65,7 @@ public class ServiceRequestDto {
         this.customerId = customerId;
     }
 
-    public ServiceRequestDto(int id, String serviceName, String date, String slot, String address, String vendorName, double amount, int customerId) {
-        this.id = id;
+    public ServiceRequestDto(String serviceName, String date, String slot, String address, String vendorName, double amount, int customerId) {
         this.serviceName = serviceName;
         this.date = date;
         this.slot = slot;
@@ -93,7 +82,6 @@ public class ServiceRequestDto {
     @Override
     public String toString() {
         return "ServiceRequestDto{" +
-                "id=" + id +
                 ", serviceName='" + serviceName + '\'' +
                 ", date='" + date + '\'' +
                 ", slot='" + slot + '\'' +

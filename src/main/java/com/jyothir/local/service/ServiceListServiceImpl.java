@@ -7,6 +7,7 @@ import com.jyothir.local.model.Customer;
 import com.jyothir.local.model.ServiceList;
 import com.jyothir.local.repository.CustomerRepository;
 import com.jyothir.local.repository.ServiceRepository;
+import com.jyothir.local.utility.Utility;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,7 +29,9 @@ public class ServiceListServiceImpl implements ServiceListService{
         Customer customer = customerRepository.findById(serviceRequestDto.getCustomerId())
                 .orElseThrow(() -> new RuntimeException("Customer does not exist with id "+ serviceRequestDto.getCustomerId()));
 
-        ServiceList serviceList = ServiceMapper.mapToServiceList(serviceRequestDto, customer);
+        int serviceId = Utility.nDigitRandomNo(5);
+
+        ServiceList serviceList = ServiceMapper.mapToServiceList(serviceId, serviceRequestDto, customer);
 
         return serviceRepository.save(serviceList);
     }
@@ -71,12 +74,8 @@ public class ServiceListServiceImpl implements ServiceListService{
     }
 
     @Override
-    public List<ServiceResponseDto> getServicesByCustomerId(int customerId){
-        List<ServiceList> services = serviceRepository.getServicesByCustomerId(customerId);
-
-        return services.stream()
-                .map(ServiceMapper::mapToServiceResponseDto)
-                .collect(Collectors.toList());
+    public List<ServiceList> getServicesByCustomerId(int customerId){
+        return serviceRepository.getServicesByCustomerId(customerId);
     }
 
 }

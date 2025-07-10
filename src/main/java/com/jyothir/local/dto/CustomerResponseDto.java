@@ -10,6 +10,7 @@ public class CustomerResponseDto {
     private int customerId;
     private String customerName;
     private String email;
+    private List<ServiceResponseDto> services;
 
     public int getCustomerId() {
         return customerId;
@@ -34,10 +35,11 @@ public class CustomerResponseDto {
     public void setEmail(String email) {
         this.email = email;
     }
-    public CustomerResponseDto(int customerId, String customerName, String email) {
+    public CustomerResponseDto(int customerId, String customerName, String email, List<ServiceResponseDto> services) {
         this.customerId = customerId;
         this.customerName = customerName;
         this.email = email;
+        this.services = services;
     }
 
     public CustomerResponseDto(){
@@ -50,6 +52,15 @@ public class CustomerResponseDto {
                 "customerId=" + customerId +
                 ", customerName='" + customerName + '\'' +
                 ", email='" + email + '\'' +
+                ", services='" + services + '\'' +
                 '}';
+    }
+
+    public List<ServiceResponseDto> getServices() {
+        return services;
+    }
+
+    public void setServices(List<ServiceResponseDto> services) {
+        this.services = services;
     }
 }

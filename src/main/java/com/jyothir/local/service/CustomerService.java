@@ -1,7 +1,6 @@
 package com.jyothir.local.service;
 
 import com.jyothir.local.dto.CustomerRequestDto;
-import com.jyothir.local.dto.CustomerResponseDto;
 import com.jyothir.local.model.Customer;
 
 import java.util.List;
@@ -11,7 +10,7 @@ public interface CustomerService {
 
     Customer createCustomer(CustomerRequestDto customer);
 
-    CustomerResponseDto getCustomerById(int customerId);
+    Customer getCustomerById(int customerId);
 
     List<Customer> getAllCustomers();
 

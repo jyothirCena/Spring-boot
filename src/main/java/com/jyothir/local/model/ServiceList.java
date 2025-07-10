@@ -7,7 +7,6 @@ import jakarta.persistence.*;
 public class ServiceList {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int serviceId;
     private String serviceName;
     private String date;

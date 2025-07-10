@@ -19,10 +19,10 @@ public class ServiceMapper {
         );
     }
 
-    public static ServiceList mapToServiceList(ServiceRequestDto serviceRequestDto, Customer customer){
+    public static ServiceList mapToServiceList(int serviceId, ServiceRequestDto serviceRequestDto, Customer customer){
 
         return new ServiceList(
-                serviceRequestDto.getId(),
+                serviceId,
                 serviceRequestDto.getServiceName(),
                 serviceRequestDto.getDate(),
                 serviceRequestDto.getSlot(),

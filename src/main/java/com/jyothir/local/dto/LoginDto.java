@@ -2,16 +2,10 @@ package com.jyothir.local.dto;
 
 public class LoginDto {
 
-    private String email;
+    private int customerId;
     private String password;
 
-    public String getEmail() {
-        return email;
-    }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
     public String getPassword() {
         return password;
@@ -21,8 +15,8 @@ public class LoginDto {
         this.password = password;
     }
 
-    public LoginDto(String email, String password) {
-        this.email = email;
+    public LoginDto(int customerId, String password) {
+        this.customerId = customerId;
         this.password = password;
     }
 
@@ -33,8 +27,16 @@ public class LoginDto {
     @Override
     public String toString() {
         return "LoginDto{" +
-                "email='" + email + '\'' +
+                "customerId='" + customerId + '\'' +
                 ", password='" + password + '\'' +
                 '}';
+    }
+
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
     }
 }

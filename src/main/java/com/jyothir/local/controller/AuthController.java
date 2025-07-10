@@ -25,8 +25,7 @@ public class AuthController {
 
     @PostMapping
     public ResponseEntity<CustomerResponseDto> validateLogin(@RequestBody LoginDto loginDto){
-        Customer customer = customerService.getCustomerByEmail(loginDto.getEmail())
-                .orElseThrow(() -> new RuntimeException("Customer does not exist. Please register and login"));
+        Customer customer = customerService.getCustomerById(loginDto.getCustomerId());
 
         if(customer.getPassword().equals(loginDto.getPassword())){
             return ResponseEntity.ok(CustomerMapper.mapToCustomerResponseDto(customer));
